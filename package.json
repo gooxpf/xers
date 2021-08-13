@@ -1,0 +1,9 @@
+{
+  "name": "xers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gooxpf/xers.git",
+  "author": "gooxpf <gooxpf@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
