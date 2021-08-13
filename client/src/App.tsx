@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
+import AppWrapper from './components/init/AppWrapper';
 
 const App = (): JSX.Element => (
   <div>
-    <h1>Client App</h1>
-    <p>components/app</p>
+    <AppWrapper />
   </div>
 );
 
