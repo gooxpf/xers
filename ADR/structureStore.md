@@ -1,0 +1,2 @@
+## Store Structure (contextApi, redux, )
+
