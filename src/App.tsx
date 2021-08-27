@@ -1,10 +1,12 @@
-import React from 'react';
-import AppWrapper from "./components/init/AppWrapper";
+import React, { Suspense } from 'react';
+const AppWrapper = React.lazy(() => import('./components/init/AppWrapper'));
 
 function App() {
-  return (
-    <AppWrapper />
-  );
+    return (
+        <Suspense fallback={<React.Fragment />}>
+            <AppWrapper />
+        </Suspense>
+    );
 }
 
 export default App;
