@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AppLoader: React.FC = (): React.ReactElement => (
-  <div className="app-wrapper">
+  <div className="app-loader-wrapper">
     App Loader
   </div>
 );
