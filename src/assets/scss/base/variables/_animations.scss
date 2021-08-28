@@ -1,0 +1,21 @@
+$primary-animation-time: 0.4s;
+$primary-animation-style: $primary-animation-time ease-in-out;
+
+@function basicAnim($variable) {
+  @return $variable $primary-animation-style;
+}
+
+@mixin addWebkit($variable) {
+  -webkit-transition: $variable;
+  -moz-transition: $variable;
+  -o-transition: $variable;
+  transition: $variable;
+}
+
+@mixin primary-animations($properties) {
+  $animationString: ();
+  @each $property in $properties {
+    $animationString: $animationString , basicAnim($property)
+  }
+  @include addWebkit($animationString);
+}
