@@ -1,0 +1,61 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": ["warn", {"extensions": [".tsx"]}],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-shadow": "off",
+    "import/prefer-default-export": "off",
+    "max-len": ["error", { "code": 122 }],
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/no-duplicates": "off",
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-default": "off",
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelComponents": ["CustomInputLabel"],
+      "labelAttributes": ["label"],
+      "controlComponents": ["CustomInput"],
+      "depth": 3
+    }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/prop-types": "off"
+  }
+}

@@ -6,14 +6,14 @@ interface AppPreloaderInterface {
 }
 
 const AppPreloader = (): AppPreloaderInterface => {
-    const externalLoader: HTMLElement | undefined = document.getElementById('app-loader-external') || undefined;
-    const [isPreloaded, setIsPreloaded] = useState<boolean>(false);
-    useEffect(()=>{
-        setIsPreloaded(true);
-    },[]);
-    return {
-        isPreloaded,
-        externalLoader,
-    }
-}
+  const externalLoader: HTMLElement | undefined = document.getElementById('app-loader-external') || undefined;
+  const [isPreloaded, setIsPreloaded] = useState<boolean>(false);
+  useEffect(() => {
+    setIsPreloaded(true);
+  }, []);
+  return {
+    isPreloaded,
+    externalLoader,
+  };
+};
 export default AppPreloader;
