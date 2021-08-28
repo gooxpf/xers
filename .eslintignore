@@ -1,0 +1,7 @@
+node_modules
+build
+ADR
+*.css
+*.svg
+src/service-worker.ts
+src/serviceWorkerRegistration.ts
