@@ -32,10 +32,18 @@ export const configAppViewportReducer = (
       return { ...state, deviceType: action.payload };
 
     case ConfigClientDeviceActionTypes.SetOS:
-      return { ...state, deviceOS: action.payload };
+      return {
+        ...state,
+        deviceOsName: action.payload.name,
+        deviceOsVersion: action.payload.version,
+      };
 
     case ConfigClientDeviceActionTypes.SetBrowser:
-      return { ...state, deviceBrowser: action.payload };
+      return {
+        ...state,
+        deviceBrowserName: action.payload.name,
+        deviceBrowserVersion: action.payload.version,
+      };
 
     case ConfigClientDeviceActionTypes.SetTouch:
       return { ...state, deviceTouch: action.payload };

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { ClientDeviceTypes, ClientDeviceBreakpoints } from '../../../config/UIConfig';
 import { ConfigClientDeviceActionTypes, ConfigStateContext } from '../../../store';
+import { getBrowserType, getOsType } from './helper';
 
 const ClientDevice:React.FC = () => {
-  const { clientDevice, dispatchClientDevice } = useContext(ConfigStateContext);
+  const { dispatchClientDevice } = useContext(ConfigStateContext);
   const checkDeviceType = (width:number): ClientDeviceTypes => {
     switch (true) {
       case (width < ClientDeviceBreakpoints.Desktop.min):
@@ -14,15 +15,24 @@ const ClientDevice:React.FC = () => {
   };
 
   const getTouchScreen = () => {
-    console.log('touch', (navigator.maxTouchPoints > 0));
+    dispatchClientDevice({
+      type: ConfigClientDeviceActionTypes.SetTouch,
+      payload: (navigator.maxTouchPoints > 0),
+    });
   };
 
   const getOS = () => {
-    console.log(navigator.appVersion as string);
+    dispatchClientDevice({
+      type: ConfigClientDeviceActionTypes.SetOS,
+      payload: getOsType(),
+    });
   };
 
   const getBrowser = () => {
-    console.log(navigator.appVersion as string);
+    dispatchClientDevice({
+      type: ConfigClientDeviceActionTypes.SetBrowser,
+      payload: getBrowserType(),
+    });
   };
 
   const getAppSizes = () => {
@@ -43,12 +53,12 @@ const ClientDevice:React.FC = () => {
       type: ConfigClientDeviceActionTypes.SetDeviceType,
       payload: deviceType,
     });
-    console.log(deviceType, screenWidth, screenHeight);
   };
   useEffect(() => {
     getAppSizes();
     getTouchScreen();
     getOS();
+    getBrowser();
     window.addEventListener('resize', getAppSizes);
     return (() => {
       window.removeEventListener('resize', getAppSizes);

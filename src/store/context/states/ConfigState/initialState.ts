@@ -22,8 +22,10 @@ export const configAppViewportInitialState: ConfigClientDeviceStateInterface = {
   contentWidth: 0,
   contentHeight: 0,
   deviceType: ClientDeviceTypes.Desktop,
-  deviceOS: ClientDeviceOsTypes.Other,
-  deviceBrowser: ClientDeviceBrowserTypes.Other,
+  deviceOsName: ClientDeviceOsTypes.Other,
+  deviceOsVersion: '',
+  deviceBrowserName: ClientDeviceBrowserTypes.Other,
+  deviceBrowserVersion: '',
   deviceTouch: false,
 };
 

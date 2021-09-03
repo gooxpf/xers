@@ -9,7 +9,7 @@ import {
   ClientDeviceBrowserTypes,
   ClientDeviceOsTypes,
   ClientDeviceTypes,
-  ModalTypes
+  ModalTypes,
 } from '../../../../config/UIConfig';
 
 export interface ConfigClientDeviceStateInterface {
@@ -18,8 +18,10 @@ export interface ConfigClientDeviceStateInterface {
   deviceType: ClientDeviceTypes,
   contentWidth: number,
   contentHeight: number,
-  deviceOS: ClientDeviceOsTypes,
-  deviceBrowser: ClientDeviceBrowserTypes,
+  deviceOsName: ClientDeviceOsTypes | string,
+  deviceOsVersion: string,
+  deviceBrowserName: ClientDeviceBrowserTypes | string,
+  deviceBrowserVersion: string,
   deviceTouch: boolean,
 }
 
@@ -56,8 +58,14 @@ export interface ConfigAppHeaderStateInterface {
 export type ConfigClientDeviceActionType =
   | { type: ConfigClientDeviceActionTypes.SetSize, payload: { width: number, height: number } }
   | { type: ConfigClientDeviceActionTypes.SetDeviceType, payload: ClientDeviceTypes }
-  | { type: ConfigClientDeviceActionTypes.SetOS, payload: ClientDeviceOsTypes }
-  | { type: ConfigClientDeviceActionTypes.SetBrowser, payload: ClientDeviceBrowserTypes }
+  | {
+    type: ConfigClientDeviceActionTypes.SetOS,
+    payload: {name: ClientDeviceOsTypes | string, version: string, }
+  }
+  | {
+    type: ConfigClientDeviceActionTypes.SetBrowser,
+    payload: {name: ClientDeviceBrowserTypes | string, version: string, }
+  }
   | { type: ConfigClientDeviceActionTypes.SetTouch, payload: boolean };
 
 export type ConfigAppLoaderActionType =
