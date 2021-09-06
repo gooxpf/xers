@@ -23,6 +23,16 @@
     -->
     <title>React App</title>
     <style>
+      html, body {
+        margin: 0;
+        font-size: 16px;
+      }
+      body {
+        width: 100%;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
       .app-loader-external {
         position: fixed;
         width: 100%;
@@ -37,6 +47,11 @@
         width: 20%;
         max-width: 6em;
       }
+      .app-loader-external-wrapper svg circle:last-child {
+        transform-origin: center;
+        animation: 2s linear infinite rotate;
+      }
+      @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); }  }
     </style>
   </head>
   <body>
@@ -55,7 +70,7 @@
                 cy="50"
                 fill="none"
                 stroke="#ff0000"
-                stroke-width="0.5"
+                stroke-width="2"
                 r="42"
                 stroke-dasharray="197.92033717615698 67.97344572538566"
         >
